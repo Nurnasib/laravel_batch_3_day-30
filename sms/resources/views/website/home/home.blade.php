@@ -98,7 +98,7 @@
                                         <li>Course Feature Four</li>
                                     </ul>
                                     <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                                    <a class="btn btn-outline-success">Read More</a>
+                                    <a href="{{route('course-detail')}}" class="btn btn-outline-success">Read More</a>
                                     <a class="btn btn-outline-info float-end">Apply Now</a>
                                 </div>
                             </div>
@@ -128,7 +128,7 @@
                                         <li>Course Feature Four</li>
                                     </ul>
                                     <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                                    <a class="btn btn-outline-success">Read More</a>
+                                    <a href="{{route('course-detail')}}" class="btn btn-outline-success">Read More</a>
                                     <a class="btn btn-outline-info float-end">Apply Now</a>
                                 </div>
                             </div>
@@ -158,7 +158,7 @@
                                         <li>Course Feature Four</li>
                                     </ul>
                                     <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                                    <a class="btn btn-outline-success">Read More</a>
+                                    <a href="{{route('course-detail')}}" class="btn btn-outline-success">Read More</a>
                                     <a class="btn btn-outline-info float-end">Apply Now</a>
                                 </div>
                             </div>
