@@ -265,7 +265,7 @@
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <img class="rounded-circle header-profile-user" src="assets/images/users/avatar-1.jpg"
                              alt="Header Avatar">
-                        <span class="d-none d-xl-inline-block ml-1">Henry</span>
+                        <span class="d-none d-xl-inline-block ml-1">{{Auth::user()->name}}</span>
                         <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
                     </button>
                     <div class="dropdown-menu dropdown-menu-right">
@@ -309,7 +309,7 @@
                         </a>
 
                     </li>
-
+                    @if(Auth::user()->id == 1)
                     <li>
                         <a href="javascript: void(0);" class="has-arrow waves-effect">
                             <i class="bx bx-layout"></i>
@@ -321,6 +321,7 @@
 
                         </ul>
                     </li>
+                    @endif
 
 
 

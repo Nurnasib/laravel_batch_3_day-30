@@ -2,38 +2,43 @@
 
 @section('body')
     <div class="row">
-        <div class="table-responsive">
-            <table class="table table-light mb-0">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="text-success">{{Session::get('message')}}</h4>
+                    <h4 class="card-title">All User List</h4>
 
-                <thead>
-                <tr>
-                    <th>#</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Username</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                </tr>
-                </tbody>
-            </table>
+                    <div class="table-responsive">
+                        <table class="table table-light mb-0">
+                            <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Full Name</th>
+                                <th>Email</th>
+                                <th>Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @foreach($users as $user)
+                            <tr>
+                                <th scope="row">{{$loop->iteration}}</th>
+                                <td>{{$user->name}}</td>
+                                <td>{{$user->email}}</td>
+                                <td>
+                                    <a href="{{route('edit-user',['id'=>$user->id])}}" class="btn btn-success">
+                                        <i class="fa fa-edit"></i>
+                                    </a>
+                                    <a href="{{route('delete-user',['id'=>$user->id])}}" class="btn btn-danger {{$user->id=='1'? 'disabled': ''}}">
+                                        <i class="fa fa-trash"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 @endsection
