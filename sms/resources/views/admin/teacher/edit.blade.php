@@ -6,38 +6,39 @@
             <div class="card">
                 <div class="card-body">
                     <h3 class="text-success">{{Session::get('message')}}</h3>
-                    <h4 class="card-title mb-4">Add Teacher Form</h4>
+                    <h4 class="card-title mb-4">Edit Teacher Form</h4>
 
-                    <form action="{{route('new-teacher')}}" method="POST" enctype="multipart/form-data">
+                    <form action="{{route('update-teacher',['id'=>$teacher->id])}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group row mb-4">
                             <label for="horizontal-firstname-input" class="col-sm-3 col-form-label">Full name</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" name="name" id="horizontal-firstname-input">
+                                <input type="text" class="form-control" value="{{$teacher->name}}" name="name" id="horizontal-firstname-input">
                             </div>
                         </div>
                         <div class="form-group row mb-4">
                             <label for="horizontal-email-input" class="col-sm-3 col-form-label">Email</label>
                             <div class="col-sm-9">
-                                <input type="email" name="email" class="form-control" id="horizontal-email-input">
+                                <input type="email" name="email" value="{{$teacher->email}}" class="form-control" id="horizontal-email-input">
                             </div>
                         </div>
                         <div class="form-group row mb-4">
                             <label for="horizontal-mobile-input" class="col-sm-3 col-form-label">Mobile</label>
                             <div class="col-sm-9">
-                                <input type="number" name="mobile" class="form-control" id="horizontal-password-input">
+                                <input type="number" name="mobile" value="{{$teacher->mobile}}" class="form-control" id="horizontal-password-input">
                             </div>
                         </div>
                         <div class="form-group row mb-4">
                             <label for="horizontal-address-input" class="col-sm-3 col-form-label">Address</label>
                             <div class="col-sm-9">
-                                <textarea name="address" class="form-control" id="horizontal-email-input"></textarea>
+                                <textarea name="address" class="form-control"  id="horizontal-email-input">value="{{$teacher->address}}"</textarea>
                             </div>
                         </div>
                         <div class="form-group row mb-4">
                             <label for="horizontal-image-input" class="col-sm-3 col-form-label">Image</label>
                             <div class="col-sm-9">
                                 <input type="file" name="image" class="form-control-file" accept="image/*"/>
+                                <img src="{{asset($teacher->image)}}" alt="" height="100" width="150"/>
                             </div>
                         </div>
 
@@ -45,7 +46,7 @@
                             <div class="col-sm-9">
 
                                 <div>
-                                    <button type="submit" class="btn btn-primary w-md">Create New Teacher</button>
+                                    <button type="submit" class="btn btn-primary w-md">Update Teacher Info</button>
                                 </div>
                             </div>
                         </div>
