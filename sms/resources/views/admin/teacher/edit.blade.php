@@ -8,7 +8,7 @@
                     <h3 class="text-success">{{Session::get('message')}}</h3>
                     <h4 class="card-title mb-4">Edit Teacher Form</h4>
 
-                    <form action="{{route('update-teacher',['id'=>$teacher->id])}}" method="POST" enctype="multipart/form-data">
+                    <form action="{{route('update-teacher',['id'=> $teacher->id])}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group row mb-4">
                             <label for="horizontal-firstname-input" class="col-sm-3 col-form-label">Full name</label>
@@ -39,6 +39,13 @@
                             <div class="col-sm-9">
                                 <input type="file" name="image" class="form-control-file" accept="image/*"/>
                                 <img src="{{asset($teacher->image)}}" alt="" height="100" width="150"/>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-4">
+                            <label for="horizontal-image-input" class="col-sm-3 col-form-label">Status</label>
+                            <div class="col-sm-9">
+                                <label><input type="radio" {{$teacher->status==1?'checked':''}} name="status" value="1"/>Active</label>
+                                <label><input type="radio" {{$teacher->status==0?'checked':''}} name="status" value="0"/>Inactive</label>
                             </div>
                         </div>
 

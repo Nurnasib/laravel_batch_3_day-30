@@ -26,7 +26,7 @@ class TeacherController extends Controller
     public function edit($id)
     {
         $this->teacher = Teacher::find($id);
-        return view('admin.teacher.edit', ['id'=>$this->teacher]);
+        return view('admin.teacher.edit', ['teacher'=>$this->teacher]);
     }
     public function update(Request $request, $id)
     {
