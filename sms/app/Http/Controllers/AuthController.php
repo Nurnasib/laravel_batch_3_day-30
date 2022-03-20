@@ -24,6 +24,7 @@ class AuthController extends Controller
                 if (password_verify($request->password, $this->user->password)){
                    Session::put('user_id', $this->user->id);
                    Session::put('user_name', $this->user->name);
+                   Session::put('user_image', $this->user->image);
 
                    return  redirect('/teacher-dashboard');
                 }
@@ -45,5 +46,13 @@ class AuthController extends Controller
     public function register()
     {
         return view('login.register');
+    }
+    public function logout()
+    {
+        Session::forget('user_id');
+        Session::forget('user_name');
+        Session::forget('user_image');
+
+        return redirect('/');
     }
 }
