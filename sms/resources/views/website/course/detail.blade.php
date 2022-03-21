@@ -6,21 +6,19 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="card card-body">
-                        <img src="{{asset('/img/pm.jpg')}}" alt="" class="w-100"/>
+                        <img src="{{asset($subject->image)}}" alt="" class="w-100"/>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="card card-body">
-                        <h1>Lorem ipsum dolor sit amet, consectetur.</h1>
-                        <p>Course Fee: 15500/-</p>
-                        <h2>Trainer Name</h2>
-                        <ul>
-                            <li><a href="">Trainer LinkedIn</a> </li>
-                            <li><a href="">Trainer Facebook</a> </li>
-                            <li><a href="">Trainer Twitter</a> </li>
-                        </ul>
+                        <h1>{{$subject->title}}</h1>
+                        <p>Course Fee: {{$subject->fee}}</p>
+                        <a href="{{route('enroll-now',['id'=>$subject->id])}}" class="btn btn-outline-success w-25 mx-auto"> Enroll Now </a>
                         <hr/>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate deserunt dignissimos harum, nulla quasi ut vero. Amet animi corporis deleniti ea, est eum labore ratione sed totam ullam. Numquam, velit?</p>
+                        <h2>Trainer Name: {{$subject->teacher->name}}</h2>
+                        <img src="{{asset($subject->teacher->image)}}" height="100" width="100"/>
+                        <hr/>
+                        <div>{!! $subject->short_description !!}</div>
                     </div>
                 </div>
             </div>
@@ -33,11 +31,8 @@
                     <div class="card card-body">
                         <h1>Course Module</h1>
                         <hr/>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae consequatur culpa dolore eaque ex molestiae, nisi quae. Delectus deleniti distinctio, dolore eligendi eum labore minus mollitia rerum sequi, tempora veritatis.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae consequatur culpa dolore eaque ex molestiae, nisi quae. Delectus deleniti distinctio, dolore eligendi eum labore minus mollitia rerum sequi, tempora veritatis.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae consequatur culpa dolore eaque ex molestiae, nisi quae. Delectus deleniti distinctio, dolore eligendi eum labore minus mollitia rerum sequi, tempora veritatis.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae consequatur culpa dolore eaque ex molestiae, nisi quae. Delectus deleniti distinctio, dolore eligendi eum labore minus mollitia rerum sequi, tempora veritatis.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae consequatur culpa dolore eaque ex molestiae, nisi quae. Delectus deleniti distinctio, dolore eligendi eum labore minus mollitia rerum sequi, tempora veritatis.</p>
+                        <div>{!! $subject->long_description !!}</div>
+                        <hr/>
                         <a href="" class="btn btn-outline-success w-25 mx-auto"> Enroll Now </a>
                     </div>
                 </div>

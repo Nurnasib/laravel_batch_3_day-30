@@ -8,6 +8,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\TeacherDashboardController;
 use App\Http\Controllers\SubjectController;
+use App\Http\Controllers\AdminCourseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,7 +22,9 @@ use App\Http\Controllers\SubjectController;
 */
 
 Route::get('/', [WebController::class, 'index'])->name('home');
-Route::get('/course-detail', [WebController::class, 'detail'])->name('course-detail');
+Route::get('/course-detail/{id}', [WebController::class, 'detail'])->name('course-detail');
+Route::get('/enroll-now/{id}', [WebController::class, 'enroll'])->name('enroll-now');
+
 Route::get('/user-login', [AuthController::class, 'login'])->name('user-login');
 Route::post('/new-login', [AuthController::class, 'newlogin'])->name('new-login');
 Route::post('/user-logout', [AuthController::class, 'logout'])->name('user-logout');
@@ -49,3 +52,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/manage-teacher', [Teacher
 Route::middleware(['auth:sanctum', 'verified'])->get('/edit-teacher/{id}', [TeacherController::class, 'edit'])->name('edit-teacher');
 Route::middleware(['auth:sanctum', 'verified'])->get('/delete-teacher/{id}', [TeacherController::class, 'delete'])->name('delete-teacher');
 Route::middleware(['auth:sanctum', 'verified'])->post('/update-teacher/{id}', [TeacherController::class, 'update'])->name('update-teacher');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/manage-course', [AdminCourseController::class, 'manage'])->name('manage-course');
+Route::middleware(['auth:sanctum', 'verified'])->get('/view-detail/{id}', [AdminCourseController::class, 'detail'])->name('view-detail');
+Route::middleware(['auth:sanctum', 'verified'])->get('/update-status/{id}', [AdminCourseController::class, 'updateStatus'])->name('update-status');
+
